@@ -2,11 +2,11 @@
 # in all jobs, otherwise the last version wins I believe
 name: Using Cypress GH Action
 
-on: push
+on: workflow_dispatch
 
 jobs:
   single-run:
-    runs-on: ubuntu-22.04
+    runs-on: [medium, telia-managed, Linux, X64]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
 
   parallel-runs:
     name: Parallel 4x
-    runs-on: ubuntu-22.04
+    runs-on: [medium, telia-managed, Linux, X64]
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes

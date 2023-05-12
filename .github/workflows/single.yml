@@ -2,12 +2,12 @@
 # https://docs.github.com/en/actions/using-workflows
 name: Cypress single tests
 
-on: push
+on: workflow_dispatch
 
 jobs:
   test1:
     name: Cypress test
-    runs-on: ubuntu-22.04
+    runs-on: [medium, telia-managed, Linux, X64]
     steps:
     - uses: actions/checkout@v3
 
